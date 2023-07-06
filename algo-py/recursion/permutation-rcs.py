@@ -1,20 +1,20 @@
-def permute(nums):
+def permute(arr):
     result = []
 
     # base case
-    if len(nums) == 1:
-        return [nums.copy()]
+    if len(arr) == 1:
+        return [arr.copy()]
     
     # recursion
-    for i in range(len(nums)):
-        n = nums.pop(0)
-        perms = permute(nums)
+    for i in range(len(arr)):
+        n = arr.pop(0)
+        perms = permute(arr)
         
         for perm in perms:
             perm.append(n)
         
         result.extend(perms)
-        nums.append(n)
+        arr.append(n)
     
     return result
 
