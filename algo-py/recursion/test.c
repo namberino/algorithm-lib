@@ -29,7 +29,7 @@ int orgcmp(char *a, char *b, int len)
 
 // Check an org versus the list of stored ones
 // return 1 if the org is in the list
-checkOrg(char *org, int ssize, char *found, int unique)
+int checkOrg(char *org, int ssize, char *found, int unique)
 {
     int diff=0,i;
 
@@ -44,7 +44,7 @@ checkOrg(char *org, int ssize, char *found, int unique)
 }
 
 // Copy org
-orgcpy(char *dest, char *src, int ssize)
+void orgcpy(char *dest, char *src, int ssize)
 {
     int i;
 
@@ -71,7 +71,7 @@ int addToFound(char **population, int popsize, int ssize, char *found, int uniqu
 }
 
 // simple mutation - Randomly swap two characters
-mutate(char *population, int ssize)
+void mutate(char *population, int ssize)
 {
     char c;
     int i,c1,c2;
@@ -85,7 +85,7 @@ mutate(char *population, int ssize)
 }
 
 // Generate permations genetically
-perms(char **population, int popsize, int ssize)
+void perms(char **population, int popsize, int ssize)
 {
     int permsTotal,unique=0,i,g;
     char *found,*saved;
@@ -110,8 +110,9 @@ perms(char **population, int popsize, int ssize)
 
 // Init PRNG
 // Allocate and initialize first generation
-// Call the perm generator
-main(int argc, char *argv[])
+// Call the perm generatorin
+
+int main(int argc, char *argv[])
 {
     char string[]=GAIA;
     char *population[POPSIZE];
@@ -125,4 +126,5 @@ main(int argc, char *argv[])
     }
 
     perms(population,POPSIZE,strlen(string));
+	return 0;
 }
