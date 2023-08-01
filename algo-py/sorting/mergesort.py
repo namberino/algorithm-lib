@@ -1,12 +1,3 @@
-import random
-
-arr = [];
-
-for i in range(5):
-    randomInt = random.randint(1, 20);
-    arr.append(randomInt);
-
-
 # time complexity: O(n * log(n)) (for all cases)
 def mergeSort(array):
     if (len(array) > 1 and array != None):
@@ -14,7 +5,7 @@ def mergeSort(array):
 
         left = array[:mid];
         right = array[mid:];
-        
+
         mergeSort(left);
         mergeSort(right);
 
@@ -40,10 +31,7 @@ def mergeSort(array):
             k += 1;
 
 
-unsorteds = ''.join(str(arr));
-print("Unsorted: " + unsorteds);
-
-mergeSort(arr);
-
-sorteds = ''.join(str(arr));
-print("Sorted: " + sorteds);
+array = [1, 9, 2, 8, 3, 6, 5, 7, 4];
+print(array);
+mergeSort(array);
+print(array);
