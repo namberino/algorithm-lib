@@ -1,1 +1,2 @@
-# A collection of algorithms written in different programming languages
+# A collection of algorithms 
+written in C and Python
