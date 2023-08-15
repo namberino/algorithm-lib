@@ -1,10 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void insertionSort(int array[]);
 
 int main()
 {
-	int array[] = {1, 9, 2, 4, 3, 6, 5, 7, 8};
+	int array[] = {42, 23, 74, 11, 65, 58, 94, 36, 99, 87};
 	
 	printf("Unsorted: ");
 	for (int i = 0; i < 9; i++)
@@ -27,7 +28,7 @@ int main()
 
 void insertionSort(int array[])
 {
-	int arrayLength = (int) sizeof(array) / sizeof(array[0]);
+	size_t arrayLength = (int) sizeof(array) / sizeof(array[0]);
 
 	for (int i = 1; i < arrayLength; i++)
 	{

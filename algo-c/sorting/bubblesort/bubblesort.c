@@ -4,13 +4,13 @@
 void sort(int array[], int size);
 
 int main() {
-    int arr[] = {5, 7, 3, 4, 2, 1, 6, 9, 8};
+    int arr[] = {42, 23, 74, 11, 65, 58, 94, 36, 99, 87};
     int size = sizeof(arr) / sizeof(arr[0]); // size is 7
 
     sort(arr, size);
 
     for (int i = 0; i < size; i++) {
-        printf("%i\n", arr[i]);
+        printf("%i, ", arr[i]);
     }
 
     return 0;

@@ -8,11 +8,11 @@ class LinkedList:
         self.head = None;
     
     def printList(self):
-        printval = self.head
+        printval = self.head;
 
         while (printval is not None):
-            print (printval.data)
-            printval = printval.next
+            print(printval.data);
+            printval = printval.next;
 
 
 linkedList = LinkedList();

@@ -100,7 +100,7 @@
 
     int main()  
     {  
-        int a[] = { 40, 12, 31, 27, 25, 8, 1, 32, 17 };
+        int a[] = {42, 23, 74, 11, 65, 58, 94, 36, 99, 87};
         int n = sizeof(a) / sizeof(a[0]);
 
         printf("Before sorting array elements are - \n");

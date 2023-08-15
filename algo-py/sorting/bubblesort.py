@@ -10,6 +10,6 @@ def bubbleSort(array):
 
 
 
-array = [1, 9, 2, 4, 3, 6, 5, 7, 8];
+array = [42, 26, 75, 37, 14, 68, 51, 9, 11];
 bubbleSort(array);
 print(array);
