@@ -14,21 +14,17 @@ visited = []
 queue = []
 
 def bfs(visited, graph, node):
-    out = ""
     visited.append(node)
     queue.append(node)
 
     while queue:
         s = queue.pop(0) 
-        out += s + ' '
+        print(s, end=" -> ")
 
         for neighbour in graph[s]:
             if neighbour not in visited:
                 visited.append(neighbour)
                 queue.append(neighbour)
-
-    out = out[:-1]
-    print(out.replace(' ', ' -> '))
 
 
 print("Breadth-first search order: ")
