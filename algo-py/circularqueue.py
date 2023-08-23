@@ -11,9 +11,12 @@ class CircularQueue:
         self.queue[self.tail] = data;
 
     def dequeue(self):
+        # if there's 1 element
         if (self.head == self.tail):
             self.head = -1;
             self.tail = -1;
+        
+        # else
         self.head = (self.head + 1) % self.length;
     
     def printCQueue(self):
