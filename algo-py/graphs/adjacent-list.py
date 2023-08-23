@@ -15,7 +15,10 @@ class Graph:
 
     def print_adj_list(self):
         for key in self.adj_list.keys():
-            print(f"node {key}: {self.adj_list[key]}")
+            if not len(self.adj_list[key]) == 0:
+                print(f"node {key}: {self.adj_list[key]}")
+            else:
+                print(f"node {key}: NULL")
 
 
 graph = Graph(5)
