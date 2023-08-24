@@ -1,54 +1,48 @@
-class Graph:
-    def __init__(self, vertices) -> None:
-        self.V = vertices
-        self.graph = [[0 for i in range(self.V)] for i in range(self.V)]
+class Graph():
+	def __init__(self, vertices):
+		self.vertices = vertices
+		self.graph = [[0 for column in range(vertices)] for row in range(vertices)]
 
-    def addEdge(self, u, v, w):
-        # u is starting vertex, v is destination vertex, w is weight
-        self.graph[u][v] = w 
-        self.graph[v][u] = w
+	def print_paths(self, dist):
+		print("Vertex and distance from source")
+		for node in range(self.vertices):
+			print(node + 1, "\t\t", dist[node])
 
-    def findMinDist(self, dist, visited):
-        minDist = float('inf')
-        minDistVertex = -1
+	def min_dist(self, dist, sptSet):
+		min = 1e7
 
-        for v in range(self.V):
-            if not visited[v] and dist[v] < minDist:
-                minDist = dist[v]
-                minDistVertex = v
+		for v in range(self.vertices):
+			if dist[v] < min and sptSet[v] == False:
+				min = dist[v]
+				min_index = v
 
-        return minDistVertex
+		return min_index
 
-    def dijkstraAlgorithm(self, s):
-        # s is the root vertex
-        dist = [float('inf')] * self.V
-        visited = [False] * self.V
+	def dijkstra(self, source):
+		dist = [1e7] * self.vertices
+		dist[source] = 0
+		sptSet = [False] * self.vertices
 
-        dist[s] = 0
+		for cout in range(self.vertices):
+			u = self.min_dist(dist, sptSet)
+			sptSet[u] = True
 
-        for i in range(self.V):
-            u = self.findMinDist(dist, visited)
-            visited[u] = True
+			for v in range(self.vertices):
+				if (self.graph[u][v] > 0 and sptSet[v] == False and dist[v] > dist[u] + self.graph[u][v]):
+					dist[v] = dist[u] + self.graph[u][v]
 
-            for v in range(self.V):
-                if not visited[v] and self.graph[u][v] > 0:
-                    if dist[u] + self.graph[u][v] < dist[v]:
-                        dist[v] = dist[u] + self.graph[u][v]
-
-        print("Vertex and Distance from source s")
-        for i in range(self.V):
-            print(f"{i} \t {dist[i]}")
+		self.print_paths(dist)
 
 
-graph = Graph(7)
-graph.addEdge(0, 1, 4)
-graph.addEdge(0, 2, 5)
-graph.addEdge(0, 3, 2)
-graph.addEdge(0, 4, 8)
-graph.addEdge(2, 4, 3)
-graph.addEdge(3, 1, 1)
-graph.addEdge(3, 5, 4)
-graph.addEdge(5, 4, 1)
-graph.addEdge(6, 0, 0)
+g = Graph(6)
 
-graph.dijkstraAlgorithm(0)
+g.graph = [
+	[0, 16, 0, 0, 19, 21],
+    [16, 0, 5, 6, 0, 11],
+    [0, 5, 0, 10, 0, 0],
+    [0, 6, 10, 0, 18, 14],
+    [19, 0, 0, 18, 0, 33],
+    [21, 11, 0, 14, 33, 0]
+]
+
+g.dijkstra(0)

@@ -21,7 +21,7 @@ class Graph:
                 print(f"node {key}: NULL")
 
 
-graph = Graph(5)
+graph = Graph(5, False)
 
 graph.add_edge(0, 0, 25)
 graph.add_edge(0, 1, 5)

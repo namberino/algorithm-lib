@@ -32,9 +32,9 @@ class Graph:
 
 graph = Graph(4)
 
-graph.add_edge(0, 1)
-graph.add_edge(0, 2)
-graph.add_edge(0, 3)
 graph.add_edge(1, 2)
+graph.add_edge(1, 3)
+graph.add_edge(1, 4)
+graph.add_edge(2, 3)
 
 graph.print_list()

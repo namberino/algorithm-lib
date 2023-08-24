@@ -1,13 +1,10 @@
 graph = {
-    'A' : ['B', 'S'],
-    'B' : ['A'],
-    'S' : ['A', 'C', 'G'],
-    'C' : ['S', 'D', 'E', 'F'],
-    'D' : ['C'],
-    'E' : ['C'],
-    'F' : ['C', 'G'],
-    'G' : ['S', 'F', 'H'],
-    'H' : ['G']
+    1 : [5, 6, 2],
+    2 : [1, 6, 4, 3],
+    3 : [2, 4],
+    4 : [3, 2, 6, 5],
+    5 : [1, 6, 4],
+    6 : [1, 2, 5, 4]
 }
 
 visited = []
@@ -19,7 +16,10 @@ def bfs(visited, graph, node):
 
     while queue:
         s = queue.pop(0) 
-        print(s, end=" -> ")
+        print(s, end=' -> ')
+
+        # if (s == search_node):
+        #     print(f"\nFound {search_node}")
 
         for neighbour in graph[s]:
             if neighbour not in visited:
@@ -28,4 +28,4 @@ def bfs(visited, graph, node):
 
 
 print("Breadth-first search order: ")
-bfs(visited, graph, 'A')
+bfs(visited, graph, 1)
