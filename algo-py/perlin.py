@@ -1,8 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# create a permutation table based on number of pixels seed is the initial value we want to start with
-# seed function is also used to get same set of numbers this helps to keep the perlin graph smooth
+# create a permutation table based on number of pixels, seed is the initial value we want to start with
+# seed function is used to get same set of numbers, this helps to keep the perlin graph smooth
 def perlin(x, y, seed=0):
     np.random.seed(seed)
 
@@ -47,4 +47,3 @@ x, y = np.meshgrid(lin_array, lin_array)
 
 plt.imshow(perlin(x, y, seed=1234), origin='lower')
 plt.show()
-
