@@ -10,6 +10,8 @@ def partition(array, low, high):
     
     array[i + 1], array[high] = array[high], array[i + 1];
 
+    # print(array);
+
     return i + 1;
 
 def quickSort(array, low, high):
