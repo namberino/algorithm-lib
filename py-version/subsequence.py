@@ -18,6 +18,7 @@ def longest_increasing_subsequence(array):
     result.reverse()
     return result
 
+
 array = [1, 2, 3, 8, 9, 4, 5, 6, 2, 3, 9, 10]
 print(f"Length: {len(array)}")
 result = longest_increasing_subsequence(array)

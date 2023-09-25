@@ -15,7 +15,7 @@ def partition(array, low, high):
     return i + 1;
 
 def quickSort(array, low, high):
-    if (low < high):
+    if (low <= high):
         pivotIndex = partition(array, low, high);
 
         quickSort(array, low, pivotIndex - 1);
