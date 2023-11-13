@@ -26,20 +26,25 @@ class Node:
         print(self.val, end=' ');
 
 
-root = Node(1);
+root = Node(15);
 
-root.left = Node(2);
-root.right = Node(3);
+root.left = Node(8);
 
-root.left.left = Node(4);
+root.left.left = Node(77);
+root.left.left.right = Node(35);
 
-print("Pre order Traversal: ", end="");
+root.left.right = Node(41);
+root.left.right.right = Node(24);
+root.left.right.right.left = Node(68);
+root.left.right.right.left.right = Node(99);
+
+print("PreOrder Traversal: ", end="");
 root.traversePreOrder();
 
-print("\nIn order Traversal: ", end="");
+print("\nInOrder Traversal: ", end="");
 root.traverseInOrder();
 
-print("\nPost order Traversal: ", end="");
+print("\nPostOrder Traversal: ", end="");
 root.traversePostOrder();
 
 print();

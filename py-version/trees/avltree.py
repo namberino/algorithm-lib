@@ -67,12 +67,12 @@ class AVLTree:
         elif key > root.key:
             root.right = self.delete(root.right, key)
         else:
-            if not root.left:
+            if root.left is None:
                 temp = root.right
                 root = None
                 return temp
             elif not root.right:
-                temp = root.lefr
+                temp = root.left
                 root = None
                 return temp
             

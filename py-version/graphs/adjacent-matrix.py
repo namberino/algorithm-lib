@@ -17,7 +17,7 @@ class Graph:
             print(row)
 
 
-graph = Graph(5)
+graph = Graph(6)
 
 graph.add_edge(1, 1, 25)
 graph.add_edge(1, 2, 5)

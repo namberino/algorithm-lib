@@ -1,22 +1,21 @@
-def dfs(graph, start, visited=None):
-    if visited is None:
-        visited = set()
-    visited.add(start)
+from collections import defaultdict
 
-    print(start)
+graph = defaultdict(list)
+graph['A'] = ['B','S']
+graph['S'] = ['C','G']
+graph['C'] = ['D', 'E','F']
+graph['G'] = ['H']
 
-    for next in graph[start] - visited:
-        dfs(graph, next, visited)
-    return visited
+def dfs(graph, node, visited):
+    visited.add(node)
+    print(node, end=" ")
+    
+    for neighbor in graph[node]:
+        if neighbor not in visited:
+            dfs(graph, neighbor, visited)
 
 
-graph = {
-    '1': set(['5', '6', '2']),
-    '2': set(['1', '6', '4', '3']),
-    '3': set(['2', '4']),
-    '4': set(['3', '2', '6', '5']),
-    '5': set(['1', '6', '4']),
-    '6': set(['1', '2', '5', '4'])
-}
-
-dfs(graph, '1')
+start_node = 'A'
+visited = set()
+print("Depth-First Traversal starting from node", start_node)
+dfs(graph, start_node, visited)
